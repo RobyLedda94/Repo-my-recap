@@ -72,6 +72,53 @@ gameDice_start_btn.addEventListener('click', function () {
     // Richiamo la funzione che determina il vincitore o pareggio
     determineWinner(humanNumber, pcNumber);
 
+    // Reset delle classi agli elementi che mostreranno le icone
+    human_icon.className = 'fas fa-2xl';
+    pc_icon.className = 'fas fa-2xl';
+
+    // Utilizzo dello switch per assegnare le classi in base al numero 
+    switch (humanNumber) {
+        case 1:
+            human_icon.classList.add('fa-dice-one');
+            break;
+        case 2:
+            human_icon.classList.add('fa-dice-two');
+            break;
+        case 3:
+            human_icon.classList.add('fa-dice-three');
+            break;
+        case 4:
+            human_icon.classList.add('fa-dice-four');
+            break;
+        case 5:
+            human_icon.classList.add('fa-dice-five');
+            break;
+        case 6:
+            human_icon.classList.add('fa-dice-six');
+            break;
+    };
+
+    switch (pcNumber) {
+        case 1:
+            pc_icon.classList.add('fa-dice-one');
+            break;
+        case 2:
+            pc_icon.classList.add('fa-dice-two');
+            break;
+        case 3:
+            pc_icon.classList.add('fa-dice-three');
+            break;
+        case 4:
+            pc_icon.classList.add('fa-dice-four');
+            break;
+        case 5:
+            pc_icon.classList.add('fa-dice-five');
+            break;
+        case 6:
+            pc_icon.classList.add('fa-dice-six');
+            break;
+    };
+
 });
 
 // Reset
