@@ -163,16 +163,24 @@ let resetGameList_btn = document.getElementById('resetgamelist-btn');
 
 // Show
 show_btn.addEventListener('click', function () {
+
+    // Svuoto preventivamente la lista per evitare di ricrearla
+    ul_gameList.innerHTML = '';
+
     // Ciclo for sull'array dei videogiochi
     for (let i = 0; i < array_gameList.length; i++) {
         // Per ogni istruzione di iterazione creo un elemento (div)
         let li_gameList = document.createElement('div');
 
+        // Proprietà class list per assegnare la classe ai list items
+        li_gameList.classList.add('py-2');
         // Inietto il contenuto agli elementi creati (elemento i-esimo dell'array game list)
         li_gameList.innerText = array_gameList[i];
 
         // Appedo i list_items creati all'elemento contenitore per la visualizazzione
         ul_gameList.appendChild(li_gameList);
+        // Proprietà class list per assegnare la classe alla ul
+        ul_gameList.classList.add('p-0');
         // debug
         console.log(li_gameList);
 
