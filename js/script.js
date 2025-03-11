@@ -165,7 +165,17 @@ let resetGameList_btn = document.getElementById('resetgamelist-btn');
 show_btn.addEventListener('click', function () {
     // Ciclo for sull'array dei videogiochi
     for (let i = 0; i < array_gameList.length; i++) {
-        console.log(`${i} ${array_gameList[i]}`);
+        // Per ogni istruzione di iterazione creo un elemento (div)
+        let li_gameList = document.createElement('div');
+
+        // Inietto il contenuto agli elementi creati (elemento i-esimo dell'array game list)
+        li_gameList.innerText = array_gameList[i];
+
+        // Appedo i list_items creati all'elemento contenitore per la visualizazzione
+        ul_gameList.appendChild(li_gameList);
+        // debug
+        console.log(li_gameList);
+
     };
 });
 
