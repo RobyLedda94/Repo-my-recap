@@ -17,6 +17,25 @@ function pcRandomNumber() {
     return Math.floor(Math.random() * 6 + 1);
 }
 
+// Funzione per stabilire le condizioni di vittoria pareggio o sconfitta
+function determineWinner(human, pc) {
+    // Condizione per stabilire la logica del gioco (vittoria, sconfitta, pareggio)
+
+    // Se il numero utente è maggiore del numero pc (vittoria utente)
+    if (human > pc) {
+        // Mostro in console il risultato 
+        console.log(`Vince l'utente con il numero ${human}, contro il pc con il numero ${pc}`);
+
+    } else if (human < pc) { // Altrimenti se il numero utente è minore del numero pc (vittoria pc)
+        // Mostro in console il risultato
+        console.log(`Vince il pc con il numero ${pc}, contro l'utente con il numero ${human}`);
+
+    } else { // Se le precedenti condizioni sono false (pareggio)
+        // Mostro il risultato in console
+        console.log(`Pareggio !! Numero utente : ${human}, Numero pc : ${pc}`);
+    };
+};
+
 
 // Definizione delle variabili
 
@@ -41,21 +60,9 @@ gameDice_start_btn.addEventListener('click', function () {
     let humanNumber = humanRandomNumber();
     let pcNumber = pcRandomNumber();
 
-    // Condizione per stabilire la logica del gioco (vittoria, sconfitta, pareggio)
+    // Richiamo la funzione che determina il vincitore o pareggio
+    determineWinner(humanNumber, pcNumber);
 
-    // Se il numero utente è maggiore del numero pc (vittoria utente)
-    if (humanNumber > pcNumber) {
-        // Mostro in console il risultato 
-        console.log(`Vince l'utente con il numero ${humanNumber}, contro il pc con il numero ${pcNumber}`);
-
-    } else if (humanNumber < pcNumber) { // Altrimenti se il numero utente è minore del numero pc (vittoria pc)
-        // Mostro in console il risultato
-        console.log(`Vince il pc con il numero ${pcNumber}, contro l'utente con il numero ${humanNumber}`);
-
-    } else { // Se le precedenti condizioni sono false (pareggio)
-        // Mostro il risultato in console
-        console.log(`Pareggio !! Numero utente : ${humanNumber}, Numero pc : ${pcNumber}`);
-    };
 });
 
 // Reset
