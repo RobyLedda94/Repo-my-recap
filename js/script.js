@@ -149,8 +149,7 @@ const array_gameList = ['Space Marine 2', 'Metal Gear Solid Snake', 'Fallout 4',
 let ul_gameList = document.getElementById('game-list');
 let msg_gameList = document.getElementById('msg-gamelist');
 
-// Debug
-console.log(ul_gameList, msg_gameList);
+
 
 
 // Bottoni
@@ -159,7 +158,27 @@ let search_btn = document.getElementById('search-btn');
 let add_btn = document.getElementById('add-btn');
 let resetGameList_btn = document.getElementById('resetgamelist-btn');
 
-// Debug
-console.log(show_btn, search_btn, add_btn, resetGameList_btn);
+
+// Gestione degli eventi
+
+// Show
+show_btn.addEventListener('click', function () {
+    console.log(this);
+});
+
+// Search
+search_btn.addEventListener('click', function () {
+    console.log(this);
+});
+
+// Add
+add_btn.addEventListener('click', function () {
+    console.log(this);
+});
+
+// Reset
+resetGameList_btn.addEventListener('click', function () {
+    console.log(this);
+});
 
 
