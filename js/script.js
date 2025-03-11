@@ -1,4 +1,4 @@
-console.log('debug');
+
 
 // --------------------------------------------------
 
@@ -163,7 +163,10 @@ let resetGameList_btn = document.getElementById('resetgamelist-btn');
 
 // Show
 show_btn.addEventListener('click', function () {
-    console.log(this);
+    // Ciclo for sull'array dei videogiochi
+    for (let i = 0; i < array_gameList.length; i++) {
+        console.log(`${i} ${array_gameList[i]}`);
+    };
 });
 
 // Search
