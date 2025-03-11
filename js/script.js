@@ -253,6 +253,16 @@ function resetGameList(resetArray) {
     msg_gameList.innerText = '';
 };
 
+// Definizione per il controllo sul dato inserito dall'utente
+function validateInput(input, msg) {
+    if (input === '') {
+        msg.innerText = 'Prego inserire un dato valido';
+        msg.classList.add('txt-red');
+        return false;
+    };
+    return true;
+}
+
 // Definizione delle variabili
 
 // Array (omogeneo) che contiene la lista dei videogiochi
@@ -286,6 +296,11 @@ search_btn.addEventListener('click', function () {
     // Recupero l'elemento di input e catturo il valore inserito dall'utente
     let input_gameList = document.getElementById('input-gamelist').value.toLowerCase();
 
+    // Richiamo la funzione per il controllo del dato
+    if (!validateInput(input_gameList, msg_gameList)) {
+        return;
+    }
+
     // Richiamo la funzione che gestisce la logica del filtraggio
     variableFlag(input_gameList, msg_gameList);
 
@@ -295,6 +310,11 @@ search_btn.addEventListener('click', function () {
 add_btn.addEventListener('click', function () {
     // Recupero il campo di input e catturo il suo valore
     let input_gameList = document.getElementById('input-gamelist').value.toLowerCase();
+
+    // Richiamo la funzione per il controllo del dato
+    if (!validateInput(input_gameList, msg_gameList)) {
+        return;
+    }
 
     // Richiamo la funzione che gestisce la logica per l'aggiunta di un nuovo elemento
     addNewGame(input_gameList, msg_gameList);
