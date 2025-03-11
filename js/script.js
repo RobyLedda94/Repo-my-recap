@@ -205,6 +205,9 @@ search_btn.addEventListener('click', function () {
     // Recupero l'elemento di input e catturo il valore inserito dall'utente
     let input_gameList = document.getElementById('input-gamelist').value.toLowerCase();
 
+    // Rimuovo le classi assegnate al messaggio per evitare conflitti
+    msg_gameList.classList.remove('txt-yellow', 'txt-green');
+
     // Varibile flag settata a false (parto col presupposto che non ho tovato ancora nulla perche devo prima cercare all'interno dell'array)
     let found_game = false;
 
@@ -217,11 +220,18 @@ search_btn.addEventListener('click', function () {
         };
     };
 
+
     // Condizione di controllo sulla variabile flag
     if (found_game === true) {
-        console.log(`Il videogioco ${input_gameList}, è presente nella lista`);
+        // Inietto il contenuto al messaggio in base alla condizione 
+        msg_gameList.innerText = `Il videogioco ${input_gameList}, è presente nella lista !!`;
+        // Proprietà classList per assegnare delle classi al messaggio
+        msg_gameList.classList.add('txt-yellow');
     } else {
-        console.log(`Il videgioco ${input_gameList}, non è presente nella lista aggiungilo !!`);
+        // Inietto il contenuto al messaggio in base alla condizione 
+        msg_gameList.innerText = `Il videgioco ${input_gameList}, non è presente nella lista aggiungilo !!`;
+        // Proprietà classList per assegnare delle classi al messaggio
+        msg_gameList.classList.add('txt-green');
     };
 
 });
