@@ -156,6 +156,9 @@ function showGameList(element) {
     // Svuoto preventivamente la lista per evitare di ricrearla
     ul_gameList.innerHTML = '';
 
+    // Svuoto il messaggio quando mostro la lista
+    msg_gameList.innerText = '';
+
     // Ciclo for sull'array dei videogiochi
     for (let i = 0; i < element.length; i++) {
 
@@ -176,6 +179,9 @@ function showGameList(element) {
 function variableFlag(input, msg) {
     // Varibile flag settata a false (parto col presupposto che non ho tovato ancora nulla perche devo prima cercare all'interno dell'array)
     let found_game = false;
+
+    // Rimuovo le classi assegnate al messaggio per evitare conflitti
+    msg_gameList.classList.remove('txt-yellow', 'txt-green');
 
     // Ciclo l'array per scorrere tutti i suoi elementi (cerco)
     for (let i = 0; i < array_gameList.length; i++) {
@@ -233,9 +239,6 @@ show_btn.addEventListener('click', function () {
 search_btn.addEventListener('click', function () {
     // Recupero l'elemento di input e catturo il valore inserito dall'utente
     let input_gameList = document.getElementById('input-gamelist').value.toLowerCase();
-
-    // Rimuovo le classi assegnate al messaggio per evitare conflitti
-    msg_gameList.classList.remove('txt-yellow', 'txt-green');
 
     // Richiamo la funzione che gestisce la logica del filtraggio
     variableFlag(input_gameList, msg_gameList);
