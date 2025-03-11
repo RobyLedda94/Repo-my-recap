@@ -123,5 +123,12 @@ gameDice_start_btn.addEventListener('click', function () {
 
 // Reset
 gameDice_reset_btn.addEventListener('click', function () {
-    console.log(this);
+    // Click del bottone che resetta svuoto il contenuto del messaggio
+    gameDice_result.innerText = '';
+
+    // Resetto le classi delle icone
+    human_icon.className = 'fas fa-2xl';
+    pc_icon.className = 'fas fa-2xl';
+
+
 });
