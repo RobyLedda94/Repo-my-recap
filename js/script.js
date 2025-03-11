@@ -172,6 +172,35 @@ function showGameList(element) {
     };
 };
 
+// Definizione della funzione che gestisce la logica della variabile flag
+function variableFlag(input, msg) {
+    // Varibile flag settata a false (parto col presupposto che non ho tovato ancora nulla perche devo prima cercare all'interno dell'array)
+    let found_game = false;
+
+    // Ciclo l'array per scorrere tutti i suoi elementi (cerco)
+    for (let i = 0; i < array_gameList.length; i++) {
+        // Condizione per stabilre la corrispondenza tra il valore inserito e l'elemento i-esimo dell'array
+        if (input.toLowerCase() === array_gameList[i].toLowerCase()) {
+            // Se corrispondono setto la variabile flag a true (elemento trovato)
+            found_game = true;
+        };
+    };
+
+
+    // Condizione di controllo sulla variabile flag
+    if (found_game === true) {
+        // Inietto il contenuto al messaggio in base alla condizione 
+        msg.innerText = `Il videogioco ${input}, è presente nella lista !!`;
+        // Proprietà classList per assegnare delle classi al messaggio
+        msg.classList.add('txt-yellow');
+    } else {
+        // Inietto il contenuto al messaggio in base alla condizione 
+        msg.innerText = `Il videgioco ${input}, non è presente nella lista aggiungilo !!`;
+        // Proprietà classList per assegnare delle classi al messaggio
+        msg.classList.add('txt-green');
+    };
+};
+
 // Definizione delle variabili
 
 // Array (omogeneo) che contiene la lista dei videogiochi
@@ -208,31 +237,8 @@ search_btn.addEventListener('click', function () {
     // Rimuovo le classi assegnate al messaggio per evitare conflitti
     msg_gameList.classList.remove('txt-yellow', 'txt-green');
 
-    // Varibile flag settata a false (parto col presupposto che non ho tovato ancora nulla perche devo prima cercare all'interno dell'array)
-    let found_game = false;
-
-    // Ciclo l'array per scorrere tutti i suoi elementi (cerco)
-    for (let i = 0; i < array_gameList.length; i++) {
-        // Condizione per stabilre la corrispondenza tra il valore inserito e l'elemento i-esimo dell'array
-        if (input_gameList.toLowerCase() === array_gameList[i].toLowerCase()) {
-            // Se corrispondono setto la variabile flag a true (elemento trovato)
-            found_game = true;
-        };
-    };
-
-
-    // Condizione di controllo sulla variabile flag
-    if (found_game === true) {
-        // Inietto il contenuto al messaggio in base alla condizione 
-        msg_gameList.innerText = `Il videogioco ${input_gameList}, è presente nella lista !!`;
-        // Proprietà classList per assegnare delle classi al messaggio
-        msg_gameList.classList.add('txt-yellow');
-    } else {
-        // Inietto il contenuto al messaggio in base alla condizione 
-        msg_gameList.innerText = `Il videgioco ${input_gameList}, non è presente nella lista aggiungilo !!`;
-        // Proprietà classList per assegnare delle classi al messaggio
-        msg_gameList.classList.add('txt-green');
-    };
+    // Richiamo la funzione che gestisce la logica del filtraggio
+    variableFlag(input_gameList, msg_gameList);
 
 });
 
