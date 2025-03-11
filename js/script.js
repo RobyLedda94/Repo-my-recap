@@ -204,8 +204,26 @@ show_btn.addEventListener('click', function () {
 search_btn.addEventListener('click', function () {
     // Recupero l'elemento di input e catturo il valore inserito dall'utente
     let input_gameList = document.getElementById('input-gamelist').value.toLowerCase();
-    // debug
-    console.log(input_gameList);
+
+    // Varibile flag settata a false (parto col presupposto che non ho tovato ancora nulla perche devo prima cercare all'interno dell'array)
+    let found_game = false;
+
+    // Ciclo l'array per scorrere tutti i suoi elementi (cerco)
+    for (let i = 0; i < array_gameList.length; i++) {
+        // Condizione per stabilre la corrispondenza tra il valore inserito e l'elemento i-esimo dell'array
+        if (input_gameList.toLowerCase() === array_gameList[i].toLowerCase()) {
+            // Se corrispondono setto la variabile flag a true (elemento trovato)
+            found_game = true;
+        };
+    };
+
+    // Condizione di controllo sulla variabile flag
+    if (found_game === true) {
+        console.log(`Il videogioco ${input_gameList}, è presente nella lista`);
+    } else {
+        console.log(`Il videgioco ${input_gameList}, non è presente nella lista aggiungilo !!`);
+    };
+
 });
 
 // Add
