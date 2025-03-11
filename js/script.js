@@ -149,7 +149,28 @@ function createListItem() {
 
     // Restituisco l'elemento creato
     return li_gameList;
-}
+};
+
+// Funzione che gestisce la logica di visualizazzione
+function showGameList(element) {
+    // Svuoto preventivamente la lista per evitare di ricrearla
+    ul_gameList.innerHTML = '';
+
+    // Ciclo for sull'array dei videogiochi
+    for (let i = 0; i < element.length; i++) {
+
+        // Richiamo la funzione che crea un list items all'interno del ciclo for
+        let listItems = createListItem();
+
+        // Inietto il contenuto agli elementi creati (elemento i-esimo dell'array game list)
+        listItems.innerText = element[i];
+
+        // Appedo i list_items creati all'elemento contenitore per la visualizazzione
+        ul_gameList.appendChild(listItems);
+        // Proprietà class list per assegnare la classe alla ul
+        ul_gameList.classList.add('p-0');
+    };
+};
 
 // Definizione delle variabili
 
@@ -175,27 +196,8 @@ let resetGameList_btn = document.getElementById('resetgamelist-btn');
 
 // Show
 show_btn.addEventListener('click', function () {
-
-    // Svuoto preventivamente la lista per evitare di ricrearla
-    ul_gameList.innerHTML = '';
-
-    // Ciclo for sull'array dei videogiochi
-    for (let i = 0; i < array_gameList.length; i++) {
-
-        // Richiamo la funzione che crea un list items all'interno del ciclo for
-        let listItems = createListItem();
-
-        // Inietto il contenuto agli elementi creati (elemento i-esimo dell'array game list)
-        listItems.innerText = array_gameList[i];
-
-        // Appedo i list_items creati all'elemento contenitore per la visualizazzione
-        ul_gameList.appendChild(listItems);
-        // Proprietà class list per assegnare la classe alla ul
-        ul_gameList.classList.add('p-0');
-        // debug
-        console.log(listItems);
-
-    };
+    // Richiamo la funzione che mostra il contenuto a video
+    showGameList(array_gameList);
 });
 
 // Search
