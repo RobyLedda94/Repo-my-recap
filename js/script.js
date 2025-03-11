@@ -38,9 +38,24 @@ let gameDice_result = document.getElementById('game-result');
 // Start
 gameDice_start_btn.addEventListener('click', function () {
     // Al click del bottone, richiamo le funzioni che generano dei numeri randomici per l'utente e per il pc
-    humanRandomNumber();
-    pcRandomNumber();
-    console.log('NUMERO UTENTE :' + ' ' + humanRandomNumber(), 'NUMERO PC :' + ' ' + pcRandomNumber());
+    let humanNumber = humanRandomNumber();
+    let pcNumber = pcRandomNumber();
+
+    // Condizione per stabilire la logica del gioco (vittoria, sconfitta, pareggio)
+
+    // Se il numero utente è maggiore del numero pc (vittoria utente)
+    if (humanNumber > pcNumber) {
+        // Mostro in console il risultato 
+        console.log(`Vince l'utente con il numero ${humanNumber}, contro il pc con il numero ${pcNumber}`);
+
+    } else if (humanNumber < pcNumber) { // Altrimenti se il numero utente è minore del numero pc (vittoria pc)
+        // Mostro in console il risultato
+        console.log(`Vince il pc con il numero ${pcNumber}, contro l'utente con il numero ${humanNumber}`);
+
+    } else { // Se le precedenti condizioni sono false (pareggio)
+        // Mostro il risultato in console
+        console.log(`Pareggio !! Numero utente : ${humanNumber}, Numero pc : ${pcNumber}`);
+    };
 });
 
 // Reset
