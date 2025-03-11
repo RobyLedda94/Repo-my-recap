@@ -202,7 +202,10 @@ show_btn.addEventListener('click', function () {
 
 // Search
 search_btn.addEventListener('click', function () {
-    console.log(this);
+    // Recupero l'elemento di input e catturo il valore inserito dall'utente
+    let input_gameList = document.getElementById('input-gamelist').value.toLowerCase();
+    // debug
+    console.log(input_gameList);
 });
 
 // Add
