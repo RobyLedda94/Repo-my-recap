@@ -139,6 +139,18 @@ gameDice_reset_btn.addEventListener('click', function () {
 
 // Definizione delle Funzioni
 
+// Funzione che crea un list item
+function createListItem() {
+    // Creo un elemento (div)
+    let li_gameList = document.createElement('div');
+
+    // Proprietà class list per assegnare la classe ai list items
+    li_gameList.classList.add('py-2');
+
+    // Restituisco l'elemento creato
+    return li_gameList;
+}
+
 // Definizione delle variabili
 
 // Array (omogeneo) che contiene la lista dei videogiochi
@@ -169,20 +181,19 @@ show_btn.addEventListener('click', function () {
 
     // Ciclo for sull'array dei videogiochi
     for (let i = 0; i < array_gameList.length; i++) {
-        // Per ogni istruzione di iterazione creo un elemento (div)
-        let li_gameList = document.createElement('div');
 
-        // Proprietà class list per assegnare la classe ai list items
-        li_gameList.classList.add('py-2');
+        // Richiamo la funzione che crea un list items all'interno del ciclo for
+        let listItems = createListItem();
+
         // Inietto il contenuto agli elementi creati (elemento i-esimo dell'array game list)
-        li_gameList.innerText = array_gameList[i];
+        listItems.innerText = array_gameList[i];
 
         // Appedo i list_items creati all'elemento contenitore per la visualizazzione
-        ul_gameList.appendChild(li_gameList);
+        ul_gameList.appendChild(listItems);
         // Proprietà class list per assegnare la classe alla ul
         ul_gameList.classList.add('p-0');
         // debug
-        console.log(li_gameList);
+        console.log(listItems);
 
     };
 });
