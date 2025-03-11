@@ -241,6 +241,18 @@ function addNewGame(input, msg) {
     };
 };
 
+// Definizione della funzione che resetta la lista
+function resetGameList(resetArray) {
+
+    // Svuoto l'array
+    resetArray.length = 0;
+    // Svuoto il contenuto della lista
+    ul_gameList.innerText = '';
+
+    // Svuoto il messaggio
+    msg_gameList.innerText = '';
+};
+
 // Definizione delle variabili
 
 // Array (omogeneo) che contiene la lista dei videogiochi
@@ -291,7 +303,8 @@ add_btn.addEventListener('click', function () {
 
 // Reset
 resetGameList_btn.addEventListener('click', function () {
-    console.log(this);
+    // Richiamo ls funzione che gestisce il reset
+    resetGameList(array_gameList);
 });
 
 
