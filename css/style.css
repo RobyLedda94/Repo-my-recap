@@ -29,3 +29,19 @@
 .txt-white {
     color: white;
 }
+
+.txt-green {
+    color: rgb(0, 88, 0);
+}
+
+.txt-cyan {
+    color: rgb(0, 110, 110);
+}
+
+.txt-yellow {
+    color: rgb(133, 133, 0);
+}
+
+.txt-red {
+    color: rgb(131, 0, 0);
+}

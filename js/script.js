@@ -19,20 +19,29 @@ function pcRandomNumber() {
 
 // Funzione per stabilire le condizioni di vittoria pareggio o sconfitta
 function determineWinner(human, pc) {
+    // Rimuovo le classi al messaggio per la visualizazzione (evito conflitti in base alle condizioni)
+    gameDice_result.classList.remove('txt-green', 'txt-red', 'txt-cyan');
+
     // Condizione per stabilire la logica del gioco (vittoria, sconfitta, pareggio)
 
     // Se il numero utente è maggiore del numero pc (vittoria utente)
     if (human > pc) {
-        // Mostro in console il risultato 
-        console.log(`Vince l'utente con il numero ${human}, contro il pc con il numero ${pc}`);
+        // Inietto dinamuicamete il contenuto all'elemento che mostra il messaggio a video
+        gameDice_result.innerText = `Vince l'utente con il numero ${human}, contro il pc con il numero ${pc}`;
+        // Proprietà classList per modificare la classe in base alla condizione 
+        gameDice_result.classList.add('txt-green');
 
     } else if (human < pc) { // Altrimenti se il numero utente è minore del numero pc (vittoria pc)
-        // Mostro in console il risultato
-        console.log(`Vince il pc con il numero ${pc}, contro l'utente con il numero ${human}`);
+        // Stesso approccio per la consizione di sconfitta
+        gameDice_result.innerText = `Vince il pc con il numero ${pc}, contro l'utente con il numero ${human}`;
+
+        gameDice_result.classList.add('txt-red');
 
     } else { // Se le precedenti condizioni sono false (pareggio)
-        // Mostro il risultato in console
-        console.log(`Pareggio !! Numero utente : ${human}, Numero pc : ${pc}`);
+
+        gameDice_result.innerText = `Pareggio !! Numero utente : ${human}, Numero pc : ${pc}`;
+
+        gameDice_result.classList.add('txt-cyan');
     };
 };
 
