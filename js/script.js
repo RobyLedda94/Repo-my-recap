@@ -374,6 +374,35 @@ function reverseWord(wordPalindorma) {
 
 };
 
+function flagPalindroma(input, msg) {
+    // Controllo che non vengano inserite parole doppie nell'array
+
+    // Setto una variabile flag (parto col presupposto che non ho torvato nulla perche devo ancora cercare nell'array)
+    let found_palindroma = false;
+
+    // Per cercare nell'array devo scrorrere tutti i suoi elementi attraverso un ciclo for
+
+    for (let i = 0; i < array_palindromas.length; i++) {
+        if (array_palindromas[i].toLowerCase() === input.toLowerCase()) {
+            found_palindroma = true;
+        };
+    };
+
+    // Se è vero che ho trovato la parola non posso aggiungerla
+
+    if (found_palindroma) {
+
+        msg.innerText = `La parola ${input} è gia presente nell'elenco non puoi aggiungerla !!`;
+        msg.classList.add('txt-yellow');
+
+    } else { // altrimnti faccio il push della parola inserita dall'utente nell'array delle parole palindrome
+
+        array_palindromas.push(input);
+        msg.innerText = `La parola ${input} è stata aggiunta con successo !!`;
+        msg.classList.add('txt-green');
+    };
+};
+
 
 // Definizione delle variabili
 
@@ -439,6 +468,29 @@ btn_check_palindroma.addEventListener('click', function () {
 // Aggiunta
 btn_add_palindroma.addEventListener('click', function () {
 
+    // Recupero l'imput e catturo il suo valore (mtodo trim rimuove gli spazi bianchi all'inizio e alla fine)
+    let input_palindroma = document.getElementById('input-palindroma').value.toLowerCase();
+
+    // Richiamo la funzione assegnandole un valore reale (ovvero il campo di input)
+    let checkWord = reverseWord(input_palindroma);
+
+    // Richiamo la funzione che controlla il dato inserito nell'input
+    if (!validateInputPalindroma(input_palindroma, msg_palindroma)) {
+        return;
+    };
+
+    // Rimuovo le classi al messaggio
+    msg_palindroma.classList.remove('txt-red', 'txt-green');
+
+    // Ulteriore controllo se la parola è palindroma
+    if (input_palindroma !== checkWord) {
+        msg_palindroma.innerText = `La parola ${input_palindroma}, non è palindroma non puoi aggiungerla !!`;
+        msg_palindroma.classList.add('txt-red');
+        return;
+    };
+
+    // Richiamo la funzione flag palindroma 
+    flagPalindroma(input_palindroma, msg_palindroma);
 
 });
 
