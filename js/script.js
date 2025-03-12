@@ -347,9 +347,34 @@ const array_palindromas = [];
 let ul_palindroma = document.getElementById('ul-palindroma');
 let msg_palindroma = document.getElementById('msg-palindroma');
 
+console.log(ul_palindroma, msg_palindroma);
+
 // Bottoni
 
 let btn_check_palindroma = document.getElementById('check-palindroma');
 let btn_add_palindroma = document.getElementById('add-palindroma');
 let btn_show_palindroma = document.getElementById('show-palindroma');
 let btn_reset_palindroma = document.getElementById('reset-palindroma');
+
+
+// Gestione degli eventi
+
+// Controllo
+btn_check_palindroma.addEventListener('click', function () {
+    console.log(this);
+});
+
+// Aggiunta
+btn_add_palindroma.addEventListener('click', function () {
+    console.log(this);
+});
+
+// Mostra
+btn_show_palindroma.addEventListener('click', function () {
+    console.log(this);
+});
+
+// Reset
+btn_reset_palindroma.addEventListener('click', function () {
+    console.log(this);
+});
