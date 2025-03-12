@@ -364,6 +364,15 @@ btn_check_palindroma.addEventListener('click', function () {
     // Recupero l'elemento di input e catturo il suo valore
     let input_palindroma = document.getElementById('input-palindroma').value;
 
+    // Debug
+    console.log(input_palindroma);
+
+    // Assegno il valore recuperato dall'input ad una variabile che dovrà (splittare i caratteri, invertire e riunire)
+    let reverseWord = input_palindroma.split('').reverse().join('');
+
+    // Debug
+    console.log(reverseWord);
+
 });
 
 // Aggiunta
