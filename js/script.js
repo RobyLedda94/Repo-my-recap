@@ -486,7 +486,7 @@ function createListPalindroma(element, msg) {
 
 // Definizione dell'array che contiene le parole palindrome
 
-const array_palindromas = [];
+let array_palindromas = [];
 
 // Elementi per la visualizazzione
 
@@ -539,7 +539,7 @@ btn_add_palindroma.addEventListener('click', function () {
 
 
     // Rimuovo le classi al messaggio
-    msg_palindroma.classList.remove('txt-red', 'txt-green');
+    msg_palindroma.classList.remove('txt-red', 'txt-green', 'txt-yellow', 'txt-cyan');
 
     // Istruzione condizionale in cui confronto il valore del campo di input con la funzione che inverte il valore 
     if (input_palindroma !== reverseWord) {
@@ -571,5 +571,15 @@ btn_show_palindroma.addEventListener('click', function () {
 
 // Reset
 btn_reset_palindroma.addEventListener('click', function () {
+
+    // Svuoto l'array
+    array_palindromas = [];
+
+    // Svuoto la lista
+    ul_palindroma.innerHTML = '';
+
+    // Svuoto il contenuto del messaggio
+    msg_gameList.innerText = '';
+
 
 });
