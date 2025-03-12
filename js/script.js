@@ -507,7 +507,28 @@ btn_add_palindroma.addEventListener('click', function () {
 
 // Mostra
 btn_show_palindroma.addEventListener('click', function () {
-    console.log(this);
+
+    // Svuoto preventivamente la lista, per evitare di ricrearla ogni volta che premo sul bottone
+    ul_palindroma.innerHTML = '';
+
+    // Logica per la visualizazzione a video (ciclo for)
+    for (let i = 0; i < array_palindromas.length; i++) {
+        // Debug sull'array
+        console.log(array_palindromas[i]);
+
+        // Per ogni iterazione creo un elemento (li)
+        let item_palindroma = document.createElement('li');
+
+        // Inietto l'elemento i-esimo dell'array nei list item creati
+        item_palindroma.innerText = array_palindromas[i];
+
+        // Appendo i list item creati alla lista padre (ul_palindroma)
+        ul_palindroma.appendChild(item_palindroma);
+
+        // Debug elementi creati
+        console.log(item_palindroma);
+
+    }
 });
 
 // Reset
