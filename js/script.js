@@ -347,7 +347,7 @@ const array_palindromas = [];
 let ul_palindroma = document.getElementById('ul-palindroma');
 let msg_palindroma = document.getElementById('msg-palindroma');
 
-console.log(ul_palindroma, msg_palindroma);
+
 
 // Bottoni
 
@@ -361,7 +361,9 @@ let btn_reset_palindroma = document.getElementById('reset-palindroma');
 
 // Controllo
 btn_check_palindroma.addEventListener('click', function () {
-    console.log(this);
+    // Recupero l'elemento di input e catturo il suo valore
+    let input_palindroma = document.getElementById('input-palindroma').value;
+
 });
 
 // Aggiunta
