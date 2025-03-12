@@ -367,24 +367,11 @@ function validateInputPalindroma(input, msg) {
 
 // Funzione per verificare che la parola sia palindroma o meno
 
-function checkPalindroma(word) {
-    // Assegno il valore recuperato dall'input ad una variabile che dovrà (splittare i caratteri, invertire e riunire)
-    let reverseWord = word.split('').reverse().join('');
+function reverseWord(wordPalindorma) {
 
-    // Rimuovo preventivamente le classi che assegno al messaggio per evitare conflitti
-    msg_palindroma.classList.remove('txt-green', 'txt-yellow');
+    // Restituisco la parlora (invertita)
+    return wordPalindorma.split('').reverse().join('');
 
-    // Istruzione condizionale per stabilire se la parola inserita dall'utente è palindroma
-    if (word === reverseWord) {
-        // Inietto dinamicamente il contenuto all'elemento messaggio
-        msg_palindroma.innerText = `La parola ${word}, è palindroma aggiungila !!`;
-        // Proprietà classList per definire lo stile
-        msg_palindroma.classList.add('txt-green');
-
-    } else {
-        msg_palindroma.innerText = `La parola ${word}, non è palindroma !!`;
-        msg_palindroma.classList.add('txt-yellow');
-    };
 };
 
 
@@ -413,24 +400,46 @@ let btn_reset_palindroma = document.getElementById('reset-palindroma');
 
 // Controllo
 btn_check_palindroma.addEventListener('click', function () {
-    // Recupero l'elemento di input e catturo il suo valore
+
+    // Recupero l'imput e catturo il suo valore (mtodo trim rimuove gli spazi bianchi all'inizio e alla fine)
     let input_palindroma = document.getElementById('input-palindroma').value.toLowerCase();
 
-    // Richiamo la funzione per il controllo del dato inserito
+
+    // Richiamo la funzione assegnandole un valore reale (ovvero il campo di input)
+    let checkWord = reverseWord(input_palindroma);
+
+
+    // Richiamo la funzione che controlla il dato inserito nell'input
     if (!validateInputPalindroma(input_palindroma, msg_palindroma)) {
         return;
     };
 
-    // Richiamo la funzione (checkPalindroma)
-    checkPalindroma(input_palindroma);
+    // Rimuovo le classi al messaggio
+    msg_palindroma.classList.remove('txt-green', 'txt-red');
 
+    // Attraverso l'istruzione condizionale verifico le la parola è palindroma oppure no
+    if (input_palindroma === checkWord) {
 
+        // Inietto al messaggio il contenuto (tramite innerText e tempalte literal)
+        msg_palindroma.innerText = `La parola ${input_palindroma}, è palindroma aggiungila !!`;
+
+        // Stilizzo il messaggio con la proprietà classList
+        msg_palindroma.classList.add('txt-green');
+
+    } else {
+
+        msg_palindroma.innerText = `La parola ${input_palindroma}, non è palindorma`;
+
+        msg_palindroma.classList.add('txt-red');
+
+    };
 
 });
 
 // Aggiunta
 btn_add_palindroma.addEventListener('click', function () {
-    console.log(this);
+
+
 });
 
 // Mostra
