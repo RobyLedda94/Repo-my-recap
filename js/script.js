@@ -365,12 +365,39 @@ function validateInputPalindroma(input, msg) {
     return true;
 };
 
+
+// Funzione per invertire la parola dell'input
+
+function getReversedWord(word) {
+    return word.split('').reverse().join('');
+}
+
 // Funzione per verificare che la parola sia palindroma o meno
 
-function reverseWord(wordPalindorma) {
+function checkWordPalindroma(input, msg) {
 
-    // Restituisco la parlora (invertita)
-    return wordPalindorma.split('').reverse().join('');
+    // Variabile a cui assegno il valore catturato nell' input
+    let checkWord = input.split('').reverse().join('');
+
+    // Rimuovo le classi al messaggio
+    msg.classList.remove('txt-green', 'txt-red');
+
+    // Attraverso l'istruzione condizionale verifico le la parola è palindroma oppure no
+    if (input === checkWord) {
+
+        // Inietto al messaggio il contenuto (tramite innerText e tempalte literal)
+        msg.innerText = `La parola ${input}, è palindroma aggiungila !!`;
+
+        // Stilizzo il messaggio con la proprietà classList
+        msg.classList.add('txt-green');
+
+    } else {
+
+        msg.innerText = `La parola ${input}, non è palindorma`;
+
+        msg.classList.add('txt-red');
+
+    };
 
 };
 
@@ -433,37 +460,17 @@ btn_check_palindroma.addEventListener('click', function () {
     // Recupero l'imput e catturo il suo valore (mtodo trim rimuove gli spazi bianchi all'inizio e alla fine)
     let input_palindroma = document.getElementById('input-palindroma').value.toLowerCase();
 
-
-    // Richiamo la funzione assegnandole un valore reale (ovvero il campo di input)
-    let checkWord = reverseWord(input_palindroma);
-
-
     // Richiamo la funzione che controlla il dato inserito nell'input
     if (!validateInputPalindroma(input_palindroma, msg_palindroma)) {
         return;
     };
 
-    // Rimuovo le classi al messaggio
-    msg_palindroma.classList.remove('txt-green', 'txt-red');
 
-    // Attraverso l'istruzione condizionale verifico le la parola è palindroma oppure no
-    if (input_palindroma === checkWord) {
-
-        // Inietto al messaggio il contenuto (tramite innerText e tempalte literal)
-        msg_palindroma.innerText = `La parola ${input_palindroma}, è palindroma aggiungila !!`;
-
-        // Stilizzo il messaggio con la proprietà classList
-        msg_palindroma.classList.add('txt-green');
-
-    } else {
-
-        msg_palindroma.innerText = `La parola ${input_palindroma}, non è palindorma`;
-
-        msg_palindroma.classList.add('txt-red');
-
-    };
+    // Richiamo la funzione assegnandole un valore reale (ovvero il campo di input)
+    checkWordPalindroma(input_palindroma, msg_palindroma);
 
 });
+
 
 // Aggiunta
 btn_add_palindroma.addEventListener('click', function () {
@@ -471,19 +478,20 @@ btn_add_palindroma.addEventListener('click', function () {
     // Recupero l'imput e catturo il suo valore (mtodo trim rimuove gli spazi bianchi all'inizio e alla fine)
     let input_palindroma = document.getElementById('input-palindroma').value.toLowerCase();
 
-    // Richiamo la funzione assegnandole un valore reale (ovvero il campo di input)
-    let checkWord = reverseWord(input_palindroma);
-
     // Richiamo la funzione che controlla il dato inserito nell'input
     if (!validateInputPalindroma(input_palindroma, msg_palindroma)) {
         return;
     };
 
+    // Richiamo la funzione (che inverte il valore del capo input) assegnandole un valore reale (ovvero il campo di input)
+    getReversedWord(input_palindroma);
+
+
     // Rimuovo le classi al messaggio
     msg_palindroma.classList.remove('txt-red', 'txt-green');
 
-    // Ulteriore controllo se la parola è palindroma
-    if (input_palindroma !== checkWord) {
+    // Istruzione condizionale in cui confronto il valore del campo di input con la funzione che inverte il valore 
+    if (input_palindroma !== getReversedWord(input_palindroma)) {
         msg_palindroma.innerText = `La parola ${input_palindroma}, non è palindroma non puoi aggiungerla !!`;
         msg_palindroma.classList.add('txt-red');
         return;
@@ -491,6 +499,9 @@ btn_add_palindroma.addEventListener('click', function () {
 
     // Richiamo la funzione flag palindroma 
     flagPalindroma(input_palindroma, msg_palindroma);
+
+    // Debug
+    console.log(array_palindromas);
 
 });
 
