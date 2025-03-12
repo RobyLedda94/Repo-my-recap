@@ -335,7 +335,38 @@ resetGameList_btn.addEventListener('click', function () {
 
 // Definizione delle funzioni
 
+// Funzione per il controllo sul dato inserito dall'utente
+
+function validateInputPalindroma(input, msg) {
+    // Rimuovo preventivamente le classi che assegno al messaggio per evitare conflitti
+    msg.classList.remove('txt-red');
+
+    // Rimuovo gli spazi e normalizzo l'input
+    input = input.trim().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+
+    // Controllo se l'input è vuoto
+    if (input === '') {
+        msg.innerText = 'Prego inserire un dato valido!';
+        msg.classList.add('txt-red');
+        return false;
+    };
+
+    // Espressione regolare per accettare solo lettere
+    let regex = /^[a-zA-Z]+$/;
+    if (!regex.test(input)) {
+        msg.innerText = 'Errore: Inserire solo lettere, niente numeri o caratteri speciali!';
+        msg.classList.add('txt-red');
+        return false;
+    };
+
+    // Se l'input è valido svuoto il messaggio
+    msg.innerText = '';
+
+    return true;
+};
+
 // Funzione per verificare che la parola sia palindroma o meno
+
 function checkPalindroma(word) {
     // Assegno il valore recuperato dall'input ad una variabile che dovrà (splittare i caratteri, invertire e riunire)
     let reverseWord = word.split('').reverse().join('');
@@ -384,6 +415,11 @@ let btn_reset_palindroma = document.getElementById('reset-palindroma');
 btn_check_palindroma.addEventListener('click', function () {
     // Recupero l'elemento di input e catturo il suo valore
     let input_palindroma = document.getElementById('input-palindroma').value.toLowerCase();
+
+    // Richiamo la funzione per il controllo del dato inserito
+    if (!validateInputPalindroma(input_palindroma, msg_palindroma)) {
+        return;
+    };
 
     // Richiamo la funzione (checkPalindroma)
     checkPalindroma(input_palindroma);
