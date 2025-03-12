@@ -340,14 +340,19 @@ function checkPalindroma(word) {
     // Assegno il valore recuperato dall'input ad una variabile che dovrà (splittare i caratteri, invertire e riunire)
     let reverseWord = word.split('').reverse().join('');
 
-    // Debug
-    console.log(reverseWord);
+    // Rimuovo preventivamente le classi che assegno al messaggio per evitare conflitti
+    msg_palindroma.classList.remove('txt-green', 'txt-yellow');
 
     // Istruzione condizionale per stabilire se la parola inserita dall'utente è palindroma
     if (word === reverseWord) {
-        console.log(`La parola ${word}, è palindroma aggiungila !!`);
+        // Inietto dinamicamente il contenuto all'elemento messaggio
+        msg_palindroma.innerText = `La parola ${word}, è palindroma aggiungila !!`;
+        // Proprietà classList per definire lo stile
+        msg_palindroma.classList.add('txt-green');
+
     } else {
-        console.log(`La parola ${word}, non è palindroma !!`);
+        msg_palindroma.innerText = `La parola ${word}, non è palindroma !!`;
+        msg_palindroma.classList.add('txt-yellow');
     };
 };
 
@@ -378,7 +383,7 @@ let btn_reset_palindroma = document.getElementById('reset-palindroma');
 // Controllo
 btn_check_palindroma.addEventListener('click', function () {
     // Recupero l'elemento di input e catturo il suo valore
-    let input_palindroma = document.getElementById('input-palindroma').value;
+    let input_palindroma = document.getElementById('input-palindroma').value.toLowerCase();
 
     // Richiamo la funzione (checkPalindroma)
     checkPalindroma(input_palindroma);
