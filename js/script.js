@@ -373,6 +373,13 @@ btn_check_palindroma.addEventListener('click', function () {
     // Debug
     console.log(reverseWord);
 
+    // Istruzione condizionale per stabilire se la parola inserita dall'utente è palindroma
+    if (input_palindroma === reverseWord) {
+        console.log(`La parola ${input_palindroma}, è palindroma aggiungila !!`);
+    } else {
+        console.log(`La parola ${input_palindroma}, non è palindroma !!`);
+    }
+
 });
 
 // Aggiunta
