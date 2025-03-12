@@ -402,6 +402,10 @@ function checkWordPalindroma(input, msg) {
 };
 
 function flagPalindroma(input, msg) {
+
+    // Rimuovo le classi del messaggio per evitare conflitti
+    msg.classList.remove('txt-yellow', 'txt-green', 'txt-cyan');
+
     // Controllo che non vengano inserite parole doppie nell'array
 
     // Setto una variabile flag (parto col presupposto che non ho torvato nulla perche devo ancora cercare nell'array)
@@ -430,11 +434,31 @@ function flagPalindroma(input, msg) {
     };
 };
 
+// Funzione che controlla lo stato dell'array
+
+function checkEmptyArray(array, msg) {
+
+    // Rimuovo le classi del messaggio per evitare conflitti
+    msg.classList.remove('txt-cyan');
+
+    // Controllo sulla lunghezza dell'array
+    if (array.length === 0) {
+        msg.innerText = 'Al momento la lista è vuota aggiungi una parola';
+        msg.classList.add('txt-cyan');
+        return true; // true se l'array è vuoto
+    };
+
+    return false; // false l'array ha elementi
+};
+
 // Funzione per creare e mostrare la lista a video
 
-function createListPalindroma(element) {
+function createListPalindroma(element, msg) {
     // Svuoto preventivamente la lista, per evitare di ricrearla ogni volta che premo sul bottone
     ul_palindroma.innerHTML = '';
+
+    // Elimino il messaggio quando mostro la lista
+    msg.innerText = '';
 
     // Logica per la visualizazzione a video (ciclo for)
     for (let i = 0; i < element.length; i++) {
@@ -442,11 +466,17 @@ function createListPalindroma(element) {
         // Per ogni iterazione creo un elemento (li)
         let item_palindroma = document.createElement('li');
 
+        // Proprietà classList sugli item
+        item_palindroma.classList.add('py-2');
+
         // Inietto l'elemento i-esimo dell'array nei list item creati
         item_palindroma.innerText = element[i];
 
         // Appendo i list item creati alla lista padre (ul_palindroma)
         ul_palindroma.appendChild(item_palindroma);
+
+        // Proprietà classList sulla lista
+        ul_palindroma.classList.add('list-unstyled');
 
     };
 };
@@ -505,14 +535,14 @@ btn_add_palindroma.addEventListener('click', function () {
     };
 
     // Richiamo la funzione (che inverte il valore del capo input) assegnandole un valore reale (ovvero il campo di input)
-    getReversedWord(input_palindroma);
+    let reverseWord = getReversedWord(input_palindroma);
 
 
     // Rimuovo le classi al messaggio
     msg_palindroma.classList.remove('txt-red', 'txt-green');
 
     // Istruzione condizionale in cui confronto il valore del campo di input con la funzione che inverte il valore 
-    if (input_palindroma !== getReversedWord(input_palindroma)) {
+    if (input_palindroma !== reverseWord) {
         msg_palindroma.innerText = `La parola ${input_palindroma}, non è palindroma non puoi aggiungerla !!`;
         msg_palindroma.classList.add('txt-red');
         return;
@@ -529,13 +559,17 @@ btn_add_palindroma.addEventListener('click', function () {
 // Mostra
 btn_show_palindroma.addEventListener('click', function () {
 
-    // Richiamo la funzione che crea la lista delle parole palindorme (argomento array)
-    createListPalindroma(array_palindromas)
+    // Richiamo la funzione sul controllo dello stato dell'array
+    if (checkEmptyArray(array_palindromas, msg_palindroma) === true) { // esegue se non trova elementi
+        return;
+    }
 
+    // Richiamo la funzione che crea la lista delle parole palindorme (argomento array)
+    createListPalindroma(array_palindromas, msg_palindroma);
 
 });
 
 // Reset
 btn_reset_palindroma.addEventListener('click', function () {
-    console.log(this);
+
 });
