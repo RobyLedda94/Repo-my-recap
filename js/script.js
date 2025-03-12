@@ -333,3 +333,23 @@ resetGameList_btn.addEventListener('click', function () {
 // Esercizio Palindroma
 
 
+// Definizione delle funzioni
+
+
+// Definizione delle variabili
+
+// Definizione dell'array che contiene le parole palindrome
+
+const array_palindromas = [];
+
+// Elementi per la visualizazzione
+
+let ul_palindroma = document.getElementById('ul-palindroma');
+let msg_palindroma = document.getElementById('msg-palindroma');
+
+// Bottoni
+
+let btn_check_palindroma = document.getElementById('check-palindroma');
+let btn_add_palindroma = document.getElementById('add-palindroma');
+let btn_show_palindroma = document.getElementById('show-palindroma');
+let btn_reset_palindroma = document.getElementById('reset-palindroma');
