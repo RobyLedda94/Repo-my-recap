@@ -328,3 +328,8 @@ resetGameList_btn.addEventListener('click', function () {
 });
 
 
+// -------------------------------------------------------------------------------------------------------------
+
+// Esercizio Palindroma
+
+
