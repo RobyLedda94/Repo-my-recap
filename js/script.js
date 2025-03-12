@@ -339,7 +339,7 @@ resetGameList_btn.addEventListener('click', function () {
 
 function validateInputPalindroma(input, msg) {
     // Rimuovo preventivamente le classi che assegno al messaggio per evitare conflitti
-    msg.classList.remove('txt-red');
+    msg.classList.remove('txt-red', 'txt-green', 'txt-yellow', 'txt-cyan');
 
     // Rimuovo gli spazi e normalizzo l'input
     input = input.trim().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
@@ -380,7 +380,7 @@ function checkWordPalindroma(input, msg) {
     let checkWord = input.split('').reverse().join('');
 
     // Rimuovo le classi al messaggio
-    msg.classList.remove('txt-green', 'txt-red');
+    msg.classList.remove('txt-red', 'txt-green', 'txt-yellow', 'txt-cyan');
 
     // Attraverso l'istruzione condizionale verifico le la parola è palindroma oppure no
     if (input === checkWord) {
@@ -404,7 +404,7 @@ function checkWordPalindroma(input, msg) {
 function flagPalindroma(input, msg) {
 
     // Rimuovo le classi del messaggio per evitare conflitti
-    msg.classList.remove('txt-yellow', 'txt-green', 'txt-cyan');
+    msg.classList.remove('txt-red', 'txt-green', 'txt-yellow', 'txt-cyan');
 
     // Controllo che non vengano inserite parole doppie nell'array
 
@@ -439,7 +439,7 @@ function flagPalindroma(input, msg) {
 function checkEmptyArray(array, msg) {
 
     // Rimuovo le classi del messaggio per evitare conflitti
-    msg.classList.remove('txt-cyan');
+    msg.classList.remove('txt-red', 'txt-green', 'txt-yellow', 'txt-cyan');
 
     // Controllo sulla lunghezza dell'array
     if (array.length === 0) {
