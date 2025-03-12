@@ -335,6 +335,22 @@ resetGameList_btn.addEventListener('click', function () {
 
 // Definizione delle funzioni
 
+// Funzione per verificare che la parola sia palindroma o meno
+function checkPalindroma(word) {
+    // Assegno il valore recuperato dall'input ad una variabile che dovrà (splittare i caratteri, invertire e riunire)
+    let reverseWord = word.split('').reverse().join('');
+
+    // Debug
+    console.log(reverseWord);
+
+    // Istruzione condizionale per stabilire se la parola inserita dall'utente è palindroma
+    if (word === reverseWord) {
+        console.log(`La parola ${word}, è palindroma aggiungila !!`);
+    } else {
+        console.log(`La parola ${word}, non è palindroma !!`);
+    };
+};
+
 
 // Definizione delle variabili
 
@@ -364,21 +380,10 @@ btn_check_palindroma.addEventListener('click', function () {
     // Recupero l'elemento di input e catturo il suo valore
     let input_palindroma = document.getElementById('input-palindroma').value;
 
-    // Debug
-    console.log(input_palindroma);
+    // Richiamo la funzione (checkPalindroma)
+    checkPalindroma(input_palindroma);
 
-    // Assegno il valore recuperato dall'input ad una variabile che dovrà (splittare i caratteri, invertire e riunire)
-    let reverseWord = input_palindroma.split('').reverse().join('');
 
-    // Debug
-    console.log(reverseWord);
-
-    // Istruzione condizionale per stabilire se la parola inserita dall'utente è palindroma
-    if (input_palindroma === reverseWord) {
-        console.log(`La parola ${input_palindroma}, è palindroma aggiungila !!`);
-    } else {
-        console.log(`La parola ${input_palindroma}, non è palindroma !!`);
-    }
 
 });
 
