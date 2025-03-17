@@ -683,7 +683,7 @@ btn_replaceNumbers.addEventListener('click', function () {
 // Funzione per la crazione dinamica delle immagini per le item
 function item(immagine, titolo, descrizione) {
     return `
-            <div class="item active position-relative h-100">
+            <div class="item position-relative h-100">
                 <img src="./img/${immagine}" alt="">
                 <div class="txt-image">
                     <h3>${titolo}</h3>
@@ -697,7 +697,7 @@ function item(immagine, titolo, descrizione) {
 // Funzione per lsa creazione delle thums
 function thumb(immagine) {
     return `
-        <div class="thumb active">
+        <div class="thumb">
             <img src="./img/${immagine}" alt="">
         </div>
     `
@@ -769,12 +769,22 @@ image.forEach((elem) => {
 
 
 // Elementi per la visualizazzione (contenitori)
-let items = document.querySelector('.items');
-let thumbs = document.querySelector('.thumbs');
+let items_container = document.querySelector('.items');
+let thumbs_container = document.querySelector('.thumbs');
 
 // Inietto ai contenitori gli item creati 
-items.innerHTML = itemsContent;
-thumbs.innerHTML += thumbsContent;
+items_container.innerHTML = itemsContent;
+thumbs_container.innerHTML += thumbsContent;
+
+
+// Recupero tutti gli elementi con classe item e thumb
+let items = document.querySelectorAll('.item');
+// Debug
+console.log(items);
+let thumbs = document.querySelectorAll('.thumb');
+// Debug
+console.log(thumbs);
+
 
 
 
