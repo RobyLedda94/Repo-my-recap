@@ -654,7 +654,13 @@ btn_replaceNumbers.addEventListener('click', function () {
         for (let j = 0; j < numbers.length; j++) {
             // Confronto il valore corrente con quello sucessivo
             if (numbers[j] > numbers[j + 1]) {
-
+                // Assegno il valore attualmente iterato ad una variabile temporanea
+                let temp = numbers[j];
+                // Assengno al valore attuale il valore sucessivo
+                numbers[j] = numbers[j + 1];
+                // Assegno al valore sicessivo il valore della variabile temporanea (attuale)
+                numbers[j + 1] = temp;
+                console.log(numbers);
             };
         };
     };
