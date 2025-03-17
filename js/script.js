@@ -950,5 +950,25 @@ memberFamily.forEach((elem, index) => {
 
 });
 
+// Bottoni
+
+let showMembers_btn = document.getElementById('show-members');
+let workingMembers_btn = document.getElementById('working-mebers');
+let no_WorkingMembers_btn = document.getElementById('no-working-members');
+
+
 
 // Gestione eventi
+showMembers_btn.addEventListener('click', function () {
+    console.log(this);
+});
+
+workingMembers_btn.addEventListener('click', function () {
+    console.log(this);
+});
+
+no_WorkingMembers_btn.addEventListener('click', function () {
+    console.log(this);
+});
+
+
