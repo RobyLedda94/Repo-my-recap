@@ -901,5 +901,12 @@ const memberFamily = [
     },
 ];
 
+// Ciclo forEach sull'array di oggetti (membri famiglia)
+memberFamily.forEach((elem, index) => {
+    // Per ogni iterazione creo un elemento div
+    let cols = document.createElement('div');
+
+});
+
 
 // Gestione eventi
