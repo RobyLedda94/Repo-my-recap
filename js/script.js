@@ -610,7 +610,21 @@ let btn_replaceNumbers = document.getElementById('replace-number-list');
 
 // Mostra
 btn_showNumbers.addEventListener('click', function () {
+    // Ciclo while per scorrete gli elementi della lista
 
+    // Variabile contatore
+    let i = 0;
+
+    while (i < numbers) { // codizione da verificare 
+
+
+        // incremento (fine ciclo)
+        i++
+
+
+    };
+    // debug
+    console.log(numbers);
 });
 
 
