@@ -677,3 +677,46 @@ btn_replaceNumbers.addEventListener('click', function () {
 
 
 // Carosello con array di oggetti
+
+// Definizione delle funzioni
+
+
+// Definizione delle variabili
+
+// Array di oggetti per le immagini il titolo e la descrizione
+
+const image = [
+    {
+        img: 'img_1.jpg',
+        title: 'Terrapieno',
+        description: 'Dal terrapieno si può ammirare uno splendido panorama',
+    },
+    {
+        img: 'img_2.jpg',
+        title: 'Villanova',
+        description: 'Qartiere storico di Cagliari',
+    },
+    {
+        img: 'img_3.jpg',
+        title: 'Bastione',
+        description: 'Una delle tante attrazioni di Cagliari',
+    },
+    {
+        img: 'img_4.jpg',
+        title: 'La Vega',
+        description: 'Quartiere storico di Cagliari',
+    },
+    {
+        img: 'img_5.jpg',
+        title: 'Via Roma',
+        description: 'Una delle vie principali di Cagliari',
+    },
+    {
+        img: 'img_6.jpg',
+        title: 'Castello',
+        description: 'Quartiere storico di Cagliari',
+    },
+];
+
+
+// Gestione eventi
