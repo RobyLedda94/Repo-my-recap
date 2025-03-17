@@ -589,27 +589,8 @@ btn_reset_palindroma.addEventListener('click', function () {
 
 // Definizione delle funzioni
 
-
-// Dichiarazione delle variabili
-
-
-// Array numerico
-
-let numbers = [40, 10, 60, 90, 20, 50, 30, 70, 100, 80];
-
-// Elementi per la visualizazzione
-
-let ul_numberList = document.getElementById('number-list');
-
-// Bottoni
-
-let btn_showNumbers = document.getElementById('show-number-list');
-let btn_replaceNumbers = document.getElementById('replace-number-list');
-
-// Gestione eventi per i bottoni
-
-// Mostra
-btn_showNumbers.addEventListener('click', function () {
+// Funzione che crea gli elementi della lista e mostra a video
+function createAndShowNmberList() {
     // Ciclo while per scorrete gli elementi della lista
 
     // Variabile contatore
@@ -632,16 +613,34 @@ btn_showNumbers.addEventListener('click', function () {
         // Class list per definire lo stile della ul
         ul_numberList.classList.add('list-unstyled');
 
-        // Debug
-        console.log(li_numberList);
-
         // incremento (fine ciclo)
         i++
-
-
     };
-    // debug
-    console.log(numbers);
+};
+
+
+// Dichiarazione delle variabili
+
+
+// Array numerico
+
+let numbers = [40, 10, 60, 90, 20, 50, 30, 70, 100, 80];
+
+// Elementi per la visualizazzione
+
+let ul_numberList = document.getElementById('number-list');
+
+// Bottoni
+
+let btn_showNumbers = document.getElementById('show-number-list');
+let btn_replaceNumbers = document.getElementById('replace-number-list');
+
+// Gestione eventi per i bottoni
+
+// Mostra
+btn_showNumbers.addEventListener('click', function () {
+    // Richiamo la funzione per creare e mostrare la lista numerica
+    createAndShowNmberList();
 });
 
 
