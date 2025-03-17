@@ -861,5 +861,45 @@ next.addEventListener('click', function () {
 
 // Definizione delle variabili
 
+// Array di oggetti membri della famiglia
+const memberFamily = [
+    {
+        name: 'Alessandro',
+        role: 'Padre',
+        sex: 'Uomo',
+        work: false,
+    },
+    {
+        name: 'Adriana',
+        role: 'Madre',
+        sex: 'Donna',
+        work: false,
+    },
+    {
+        name: 'Antonio',
+        role: 'Primo genito',
+        sex: 'Uomo',
+        work: true,
+    },
+    {
+        name: 'Alessandro Jr',
+        role: 'Secondo genito',
+        sex: 'Uomo',
+        work: true,
+    },
+    {
+        name: 'Giuanluca',
+        role: 'Terzo genito',
+        sex: 'Uomo',
+        work: true,
+    },
+    {
+        name: 'Roberto',
+        role: 'Quarto genito',
+        sex: 'Uomo',
+        work: true,
+    },
+];
+
 
 // Gestione eventi
