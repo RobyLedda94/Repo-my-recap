@@ -680,6 +680,19 @@ btn_replaceNumbers.addEventListener('click', function () {
 
 // Definizione delle funzioni
 
+// Funzione per la crazione dinamica delle immagini per le item
+function item(immagine, titolo, descrizione) {
+    return `
+            <div class="item active position-relative h-100">
+                <img src="./img/${immagine}" alt="">
+                <div class="txt-image">
+                    <h3>${titolo}</h3>
+                    <p>${descrizione}</p>
+                </div>
+            </div>       
+            `
+};
+
 
 // Definizione delle variabili
 
@@ -726,6 +739,8 @@ image.forEach((elem, index) => {
     console.log(elem.description);
 });
 
+
+
 // Variabili (vuote) le quali dovranno contenere il contenuto creato dinamicamente
 let itemsContent = '';
 let thumbsContent = '';
@@ -733,11 +748,21 @@ let thumbsContent = '';
 // Variabile contatore per tenere traccia dell'elemento attivo
 let active_image = 0;
 
+// Ciclo for each per scorrere sugli elementi dell'array
+image.forEach((elem) => {
+    // Concateno il valore di items content con la chiamata della funzione che crea le immagini per le item
+    itemsContent += item(elem.img, elem.title, elem.description);
+
+});
+
+
+
 // Elementi per la visualizazzione (contenitori)
 let items = document.querySelector('.items');
-
 let thumbs = document.querySelector('.thumbs');
 
+// Inietto ai contenitori gli item creati 
+items.innerHTML = itemsContent;
 
 
 
