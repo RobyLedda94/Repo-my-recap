@@ -619,6 +619,11 @@ btn_showNumbers.addEventListener('click', function () {
 
         // Per ogni iterazione creo un elemento (li)
         let li_numberList = document.createElement('li');
+
+        // Innertext ai list  items creati
+        li_numberList.innerText = numbers[i];
+
+        // Debug
         console.log(li_numberList);
 
         // incremento (fine ciclo)
