@@ -726,11 +726,20 @@ image.forEach((elem, index) => {
     console.log(elem.description);
 });
 
-// Elementi per la visualizazzione
+// Variabili (vuote) le quali dovranno contenere il contenuto creato dinamicamente
+let itemsContent = '';
+let thumbsContent = '';
+
+// Variabile contatore per tenere traccia dell'elemento attivo
+let active_image = 0;
+
+// Elementi per la visualizazzione (contenitori)
 let items = document.querySelector('.items');
-console.log(items);
+
 let thumbs = document.querySelector('.thumbs');
-console.log(thumbs);
+
+
+
 
 
 // Bottoni (icone)
