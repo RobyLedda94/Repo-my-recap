@@ -851,3 +851,6 @@ next.addEventListener('click', function () {
     document.querySelectorAll('.thumb')[active_image].classList.add('active');
 
 });
+
+
+// My famili (array di oggetti, cilo for, funzioni)
