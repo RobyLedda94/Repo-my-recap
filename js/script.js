@@ -718,5 +718,19 @@ const image = [
     },
 ];
 
+// Ciclo for each per iterate gli elementi dell'array
+image.forEach((elem, index) => {
+    console.log(index);
+    console.log(elem.img);
+    console.log(elem.title);
+    console.log(elem.description);
+});
+
+// Elementi per la visualizazzione
+let items = document.querySelector('.items');
+console.log(items);
+let thumbs = document.querySelector('.thumbs');
+console.log(thumbs);
+
 
 // Gestione eventi
