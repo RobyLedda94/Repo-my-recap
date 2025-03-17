@@ -785,6 +785,10 @@ let thumbs = document.querySelectorAll('.thumb');
 // Debug
 console.log(thumbs);
 
+// Recupero solo il primo elemento della node List grazie alla variabile contatore (active image) e le assegno la classe active 
+items[active_image].classList.add('active');
+thumbs[active_image].classList.add('active');
+
 
 
 
