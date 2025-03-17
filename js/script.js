@@ -653,9 +653,13 @@ btn_replaceNumbers.addEventListener('click', function () {
         // Ciclo for iterno per confrontare gli elementi della lista
         for (let j = 0; j < numbers.length; j++) {
             // Salvo il valore iterato in una variabile temporanea
-            let temp = numbers[i];
-
+            let temp = numbers[j];
+            // debug
+            console.log(temp);
+            // Assegno all'elemento attualmente iterato l'elemento sucessivo
+            numbers[j] = numbers[j + 1];
+            // Debug 
+            console.log(numbers[j]);
         };
-        console.log(numbers[i]);
     };
 });
