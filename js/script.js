@@ -733,4 +733,19 @@ let thumbs = document.querySelector('.thumbs');
 console.log(thumbs);
 
 
+// Bottoni (icone)
+let prev = document.querySelector('.prev');
+let next = document.querySelector('.next');
+
+
 // Gestione eventi
+
+// Evento icona (prev)
+prev.addEventListener('click', function () {
+    console.log(this);
+});
+
+// Evento icona (next)
+next.addEventListener('click', function () {
+    console.log(this);
+});
