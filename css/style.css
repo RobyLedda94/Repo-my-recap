@@ -58,6 +58,33 @@
     background-color: rgba(0, 0, 0, 0.377);
 }
 
+/* Icone */
+.prev,
+.next {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    width: 30px;
+    height: 30px;
+    background-color: rgba(107, 107, 107, 0.596);
+    border-radius: 50%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.prev {
+    top: 20px;
+}
+
+.next {
+    bottom: 20px;
+}
+
 
 
 
