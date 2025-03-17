@@ -615,8 +615,11 @@ btn_showNumbers.addEventListener('click', function () {
     // Variabile contatore
     let i = 0;
 
-    while (i < numbers) { // codizione da verificare 
+    while (i < numbers.length) { // codizione da verificare 
 
+        // Per ogni iterazione creo un elemento (li)
+        let li_numberList = document.createElement('li');
+        console.log(li_numberList);
 
         // incremento (fine ciclo)
         i++
