@@ -591,6 +591,8 @@ btn_reset_palindroma.addEventListener('click', function () {
 
 // Funzione che crea gli elementi della lista e mostra a video
 function createAndShowNmberList() {
+    // Svuoto preventivamente la lista
+    ul_numberList.innerHTML = '';
     // Ciclo while per scorrete gli elementi della lista
 
     // Variabile contatore
@@ -615,6 +617,27 @@ function createAndShowNmberList() {
 
         // incremento (fine ciclo)
         i++
+    };
+};
+
+// Funzione algoritmo bubble sort
+function bubbleSort() {
+    // Algoritmo bubble sort per riordinare i numeri della lista (dal piu piccolo al piu grande)
+
+    // Ciclo for esterno per scorrere gli elementi della lista
+    for (let i = 0; i < numbers.length; i++) {
+        // Ciclo for iterno per confrontare gli elementi della lista
+        for (let j = 0; j < numbers.length; j++) {
+            // Confronto il valore corrente con quello sucessivo
+            if (numbers[j] > numbers[j + 1]) {
+                // Assegno il valore attualmente iterato ad una variabile temporanea
+                let temp = numbers[j];
+                // Assengno al valore attuale il valore sucessivo
+                numbers[j] = numbers[j + 1];
+                // Assegno al valore sicessivo il valore della variabile temporanea (attuale)
+                numbers[j + 1] = temp;
+            };
+        };
     };
 };
 
@@ -646,22 +669,8 @@ btn_showNumbers.addEventListener('click', function () {
 
 // Riordina e mostra
 btn_replaceNumbers.addEventListener('click', function () {
-    // Algoritmo bubble sort per riordinare i numeri della lista (dal piu piccolo al piu grande)
-
-    // Ciclo for esterno per scorrere gli elementi della lista
-    for (let i = 0; i < numbers.length; i++) {
-        // Ciclo for iterno per confrontare gli elementi della lista
-        for (let j = 0; j < numbers.length; j++) {
-            // Confronto il valore corrente con quello sucessivo
-            if (numbers[j] > numbers[j + 1]) {
-                // Assegno il valore attualmente iterato ad una variabile temporanea
-                let temp = numbers[j];
-                // Assengno al valore attuale il valore sucessivo
-                numbers[j] = numbers[j + 1];
-                // Assegno al valore sicessivo il valore della variabile temporanea (attuale)
-                numbers[j + 1] = temp;
-                console.log(numbers);
-            };
-        };
-    };
+    // Richiamo la funzione bubble sort
+    bubbleSort();
+    // Richiamo la funzione per creare e mostrare la lista numerica
+    createAndShowNmberList();
 });
