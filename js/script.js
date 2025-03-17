@@ -646,5 +646,10 @@ btn_showNumbers.addEventListener('click', function () {
 
 // Riordina e mostra
 btn_replaceNumbers.addEventListener('click', function () {
-    console.log(this);
+    // Algoritmo bubble sort per riordinare i numeri della lista (dal piu piccolo al piu grande)
+
+    // Ciclo for esterno per scorrere gli elementi della lista
+    for (let i = 0; i < numbers.length; i++) {
+        console.log(numbers[i]);
+    };
 });
