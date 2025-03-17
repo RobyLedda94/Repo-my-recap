@@ -924,11 +924,27 @@ function workingMembersFilter() {
     return workingMembers;
 };
 
+// Funzione per filtrare solo i membri che non lavorano
+function noWorkingMembersFilter() {
+    const noWorkingMembers = memberFamily.filter((elem) => {
+        return elem.work === false;
+    });
+
+    return noWorkingMembers;
+}
+
 // Funzione per mostrare solo i membri che lavorano
 function showWorkingMembers() {
     const workingMembers = workingMembersFilter();
 
     showCards(workingMembers);
+};
+
+// Funzione per mostrare solo i membri che non lavorano
+function showNoWorkingMembers() {
+    const noWorkingMembers = noWorkingMembersFilter();
+
+    showCards(noWorkingMembers);
 }
 
 
@@ -991,14 +1007,17 @@ showMembers_btn.addEventListener('click', function () {
 });
 
 workingMembers_btn.addEventListener('click', function () {
-    // Richiamo la funzione che filtra i memcri che lavorano
+    // Richiamo la funzione che filtra i membri che lavorano
     workingMembersFilter();
     // Richiamo la funzione che mostra solo i membri che lavorano
     showWorkingMembers();
 });
 
 no_WorkingMembers_btn.addEventListener('click', function () {
-    console.log(this);
+    // Richiamo la funzione che filtra i membri che non lavorano
+    noWorkingMembersFilter();
+    // Richiamo la funzione che mostra solo i membri che non lavorano
+    showNoWorkingMembers();
 });
 
 
