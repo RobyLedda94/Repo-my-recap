@@ -913,6 +913,24 @@ function showCards(array_members) {
     });
 };
 
+// Funzione per filtrare solo i membri che lavorano
+function workingMembersFilter() {
+    // Creazione di un nuovo array con il metodo filter
+    const workingMembers = memberFamily.filter((elem) => {
+        return elem.work === true;
+    });
+
+    // Restiuisco l'array filtrato
+    return workingMembers;
+};
+
+// Funzione per mostrare solo i membri che lavorano
+function showWorkingMembers() {
+    const workingMembers = workingMembersFilter();
+
+    showCards(workingMembers);
+}
+
 
 // Definizione delle variabili
 
@@ -973,7 +991,10 @@ showMembers_btn.addEventListener('click', function () {
 });
 
 workingMembers_btn.addEventListener('click', function () {
-    console.log(this);
+    // Richiamo la funzione che filtra i memcri che lavorano
+    workingMembersFilter();
+    // Richiamo la funzione che mostra solo i membri che lavorano
+    showWorkingMembers();
 });
 
 no_WorkingMembers_btn.addEventListener('click', function () {
