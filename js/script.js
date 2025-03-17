@@ -882,7 +882,7 @@ function createCard(member, i) {
                         <h4>${member.name}</h4>
                         <h5>${member.role}</h5>
                         <p>${member.sex}</p>
-                        <p>${member.work}</p>
+                        <p><strong>Lavoro : ${member.work === true ? 'Si' : 'No'}</strong></p>
                     </div>
                 </div>
             </div>
