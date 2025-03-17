@@ -694,6 +694,16 @@ function item(immagine, titolo, descrizione) {
 };
 
 
+// Funzione per lsa creazione delle thums
+function thumb(immagine) {
+    return `
+        <div class="thumb active">
+            <img src="./img/${immagine}" alt="">
+        </div>
+    `
+}
+
+
 // Definizione delle variabili
 
 // Array di oggetti per le immagini il titolo e la descrizione
@@ -752,6 +762,7 @@ let active_image = 0;
 image.forEach((elem) => {
     // Concateno il valore di items content con la chiamata della funzione che crea le immagini per le item
     itemsContent += item(elem.img, elem.title, elem.description);
+    thumbsContent += thumb(elem.img);
 
 });
 
@@ -763,6 +774,7 @@ let thumbs = document.querySelector('.thumbs');
 
 // Inietto ai contenitori gli item creati 
 items.innerHTML = itemsContent;
+thumbs.innerHTML += thumbsContent;
 
 
 
