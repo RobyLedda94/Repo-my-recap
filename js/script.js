@@ -1007,15 +1007,13 @@ showMembers_btn.addEventListener('click', function () {
 });
 
 workingMembers_btn.addEventListener('click', function () {
-    // Richiamo la funzione che filtra i membri che lavorano
-    workingMembersFilter();
+
     // Richiamo la funzione che mostra solo i membri che lavorano
     showWorkingMembers();
 });
 
 no_WorkingMembers_btn.addEventListener('click', function () {
-    // Richiamo la funzione che filtra i membri che non lavorano
-    noWorkingMembersFilter();
+
     // Richiamo la funzione che mostra solo i membri che non lavorano
     showNoWorkingMembers();
 });
