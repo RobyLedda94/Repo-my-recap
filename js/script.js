@@ -674,3 +674,6 @@ btn_replaceNumbers.addEventListener('click', function () {
     // Richiamo la funzione per creare e mostrare la lista numerica
     createAndShowNmberList();
 });
+
+
+// Carosello con array di oggetti
