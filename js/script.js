@@ -623,6 +623,15 @@ btn_showNumbers.addEventListener('click', function () {
         // Innertext ai list  items creati
         li_numberList.innerText = numbers[i];
 
+        // Class list per definire lo stile dei list items
+        li_numberList.classList.add('py-2');
+
+        // Appendo i list items creati alla ul_numberList
+        ul_numberList.appendChild(li_numberList);
+
+        // Class list per definire lo stile della ul
+        ul_numberList.classList.add('list-unstyled');
+
         // Debug
         console.log(li_numberList);
 
