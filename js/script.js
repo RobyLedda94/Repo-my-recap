@@ -868,7 +868,26 @@ function createColumn() {
 
     // Restituisco l'elemento creato
     return col;
-}
+};
+
+// Funzione per la creazione delle singole cardù
+function createCard(member, i) {
+    return `
+            <div class="card my-2">
+                <div class="card-body">
+                    <div>
+                        <h3>${i + 1}</h3>
+                    </div>
+                    <div>
+                        <h4>${member.name}</h4>
+                        <h5>${member.role}</h5>
+                        <p>${member.sex}</p>
+                        <p>${member.work}</p>
+                    </div>
+                </div>
+            </div>
+    `
+};
 
 
 // Definizione delle variabili
@@ -913,15 +932,21 @@ const memberFamily = [
     },
 ];
 
+// Recupero il contenitore (main-container)
+let familyContainer = document.getElementById('main-container');
+
 // Ciclo forEach sull'array di oggetti (membri famiglia)
 memberFamily.forEach((elem, index) => {
 
     // Richiamo la funzione che crea la singola colonna
-    createColumn();
+    let cols = createColumn();
+    console.log(cols);
 
-    console.log(createColumn());
+    // Inietto il contenuto alle colonne richiamo la funzione che crea la singola carta
+    cols.innerHTML = createCard(elem, index);
 
-
+    // Appendo al contenitore gli elementi creati dinamicamente (colonne e cards)
+    familyContainer.appendChild(cols);
 
 });
 
