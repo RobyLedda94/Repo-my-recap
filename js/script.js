@@ -853,10 +853,22 @@ next.addEventListener('click', function () {
 });
 
 
-// My famili (array di oggetti, cilo for, funzioni)
+// My family (array di oggetti, cilo for, funzioni)
 
 
 // Definizione delle funzioni
+
+// Definizione della funzione che crea la singola colonna
+function createColumn() {
+    // Creo un elemento div
+    let col = document.createElement('div');
+
+    // Assegno alle colonne create le classi di bootrstrap per definire il layout
+    col.classList.add('col-12', 'col-sm-6', 'col-md-4');
+
+    // Restituisco l'elemento creato
+    return col;
+}
 
 
 // Definizione delle variabili
@@ -903,8 +915,13 @@ const memberFamily = [
 
 // Ciclo forEach sull'array di oggetti (membri famiglia)
 memberFamily.forEach((elem, index) => {
-    // Per ogni iterazione creo un elemento div
-    let cols = document.createElement('div');
+
+    // Richiamo la funzione che crea la singola colonna
+    createColumn();
+
+    console.log(createColumn());
+
+
 
 });
 
