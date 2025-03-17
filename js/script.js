@@ -889,6 +889,30 @@ function createCard(member, i) {
     `
 };
 
+// Funzione per mostrare le card
+function showCards(array_members) {
+    // Recupero il contenitore (main-container)
+    let familyContainer = document.getElementById('main-container');
+
+    // Svuoto preventivamente il contenitore
+    familyContainer.innerHTML = '';
+
+    // Ciclo forEach sull'array di oggetti (membri famiglia)
+    array_members.forEach((elem, index) => {
+
+        // Richiamo la funzione che crea la singola colonna
+        let cols = createColumn();
+        console.log(cols);
+
+        // Inietto il contenuto alle colonne richiamo la funzione che crea la singola carta
+        cols.innerHTML = createCard(elem, index);
+
+        // Appendo al contenitore gli elementi creati dinamicamente (colonne e cards)
+        familyContainer.appendChild(cols);
+
+    });
+};
+
 
 // Definizione delle variabili
 
@@ -932,23 +956,7 @@ const memberFamily = [
     },
 ];
 
-// Recupero il contenitore (main-container)
-let familyContainer = document.getElementById('main-container');
 
-// Ciclo forEach sull'array di oggetti (membri famiglia)
-memberFamily.forEach((elem, index) => {
-
-    // Richiamo la funzione che crea la singola colonna
-    let cols = createColumn();
-    console.log(cols);
-
-    // Inietto il contenuto alle colonne richiamo la funzione che crea la singola carta
-    cols.innerHTML = createCard(elem, index);
-
-    // Appendo al contenitore gli elementi creati dinamicamente (colonne e cards)
-    familyContainer.appendChild(cols);
-
-});
 
 // Bottoni
 
@@ -960,7 +968,8 @@ let no_WorkingMembers_btn = document.getElementById('no-working-members');
 
 // Gestione eventi
 showMembers_btn.addEventListener('click', function () {
-    console.log(this);
+    // Richiamo la funzione per mostrare le card passando un argomento reale (memberFamily)
+    showCards(memberFamily);
 });
 
 workingMembers_btn.addEventListener('click', function () {
