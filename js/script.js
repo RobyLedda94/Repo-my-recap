@@ -854,3 +854,12 @@ next.addEventListener('click', function () {
 
 
 // My famili (array di oggetti, cilo for, funzioni)
+
+
+// Definizione delle funzioni
+
+
+// Definizione delle variabili
+
+
+// Gestione eventi
