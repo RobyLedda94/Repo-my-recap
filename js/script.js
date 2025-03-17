@@ -586,3 +586,35 @@ btn_reset_palindroma.addEventListener('click', function () {
 // ---------------------------------------------------------------------------------------------------------
 
 // Array numerico algoritmo bubble sort
+
+// Definizione delle funzioni
+
+
+// Dichiarazione delle variabili
+
+
+// Array numerico
+
+let numbers = [40, 10, 60, 90, 20, 50, 30, 70, 100, 80];
+
+// Elementi per la visualizazzione
+
+let ul_numberList = document.getElementById('number-list');
+
+// Bottoni
+
+let btn_showNumbers = document.getElementById('show-number-list');
+let btn_replaceNumbers = document.getElementById('replace-number-list');
+
+// Gestione eventi per i bottoni
+
+// Mostra
+btn_showNumbers.addEventListener('click', function () {
+
+});
+
+
+// Riordina e mostra
+btn_replaceNumbers.addEventListener('click', function () {
+    console.log(this);
+});
