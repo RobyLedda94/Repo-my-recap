@@ -650,6 +650,12 @@ btn_replaceNumbers.addEventListener('click', function () {
 
     // Ciclo for esterno per scorrere gli elementi della lista
     for (let i = 0; i < numbers.length; i++) {
+        // Ciclo for iterno per confrontare gli elementi della lista
+        for (let j = 0; j < numbers.length; j++) {
+            // Salvo il valore iterato in una variabile temporanea
+            let temp = numbers[i];
+
+        };
         console.log(numbers[i]);
     };
 });
