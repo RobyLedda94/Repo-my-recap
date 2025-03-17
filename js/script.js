@@ -127,8 +127,8 @@ gameDice_reset_btn.addEventListener('click', function () {
     gameDice_result.innerText = '';
 
     // Resetto le classi delle icone
-    human_icon.className = 'fas fa-2xl';
-    pc_icon.className = 'fas fa-2xl';
+    human_icon.className = '';
+    pc_icon.className = '';
 
 
 });
@@ -580,6 +580,9 @@ btn_reset_palindroma.addEventListener('click', function () {
 
     // Svuoto il contenuto del messaggio
     msg_gameList.innerText = '';
-
-
 });
+
+
+// ---------------------------------------------------------------------------------------------------------
+
+// Array numerico algoritmo bubble sort
