@@ -779,11 +779,9 @@ thumbs_container.innerHTML += thumbsContent;
 
 // Recupero tutti gli elementi con classe item e thumb
 let items = document.querySelectorAll('.item');
-// Debug
-console.log(items);
+
 let thumbs = document.querySelectorAll('.thumb');
-// Debug
-console.log(thumbs);
+
 
 // Recupero solo il primo elemento della node List grazie alla variabile contatore (active image) e le assegno la classe active 
 items[active_image].classList.add('active');
@@ -802,10 +800,54 @@ let next = document.querySelector('.next');
 
 // Evento icona (prev)
 prev.addEventListener('click', function () {
-    console.log(this);
+    // Istuzione condizionale per scorrere le immagini dell'array (prev)
+    if (active_image === 0) { // se l'immagine attiva corrisponde al primo elemento dell'array
+        active_image = image.length - 1; // ritorna all'ultimo elemento dell'array
+    } else {
+        active_image--; // altrimenti decrementa
+    };
+
+    // Item
+
+    // Seleziono il primo elemento attivo e le rimuovo la classe active
+    document.querySelector('.item.active').classList.remove('active');
+
+    // Seleziono tutti gli elementi item e le aggiungo la classe attiva
+    document.querySelectorAll('.item')[active_image].classList.add('active');
+
+    // Thumb
+
+
+    // Seleziono il primo elemento attivo e le rimuovo la classe active
+    document.querySelector('.thumb.active').classList.remove('active');
+
+    // Seleziono tutti gli elementi item e le aggiungo la classe attiva
+    document.querySelectorAll('.thumb')[active_image].classList.add('active');
 });
 
 // Evento icona (next)
 next.addEventListener('click', function () {
-    console.log(this);
+    // Istuzione condizionale per scorrere le immagini dell'array (next)
+    if (active_image === image.length - 1) { // se l'immagine corrente corrisponde all'ultimo elemento dell'array
+        active_image = 0;  // ritorna al primo elemento dell'array
+    } else {
+        active_image++; // altimenti incrementa
+    };
+
+    // Item
+
+    // Seleziono il primo elemento attivo e le rimuovo la classe active
+    document.querySelector('.item.active').classList.remove('active');
+
+    // Seleziono tutti gli elementi item e le aggiungo la classe attiva
+    document.querySelectorAll('.item')[active_image].classList.add('active');
+
+    // Thumb
+
+    // Seleziono il primo elemento attivo e le rimuovo la classe active
+    document.querySelector('.thumb.active').classList.remove('active');
+
+    // Seleziono tutti gli elementi item e le aggiungo la classe attiva
+    document.querySelectorAll('.thumb')[active_image].classList.add('active');
+
 });
